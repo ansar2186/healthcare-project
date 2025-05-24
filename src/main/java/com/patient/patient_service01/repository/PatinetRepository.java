@@ -9,5 +9,7 @@ import java.util.UUID;
 @Repository
 public interface PatinetRepository extends JpaRepository<Patinet, UUID> {
 
+    boolean existsByEmail(String email);
+
 
 }

@@ -1,0 +1,8 @@
+com\patient\patient_service01\repository\PatinetRepository.class
+com\patient\patient_service01\service\PatientService.class
+com\patient\patient_service01\contoller\PatinetController.class
+com\patient\patient_service01\dto\PatientRequestDto.class
+com\patient\patient_service01\mapper\PatinetMapper.class
+com\patient\patient_service01\PatientService01Application.class
+com\patient\patient_service01\dto\PatinetResponseDto.class
+com\patient\patient_service01\model\Patinet.class

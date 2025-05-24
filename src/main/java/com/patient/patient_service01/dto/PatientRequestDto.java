@@ -1,11 +1,15 @@
 package com.patient.patient_service01.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDate;
 
 
 public class PatientRequestDto {
+    @NotBlank(message = "Name id required")
+    @Size(min = 5, max = 10,message = "Name must be between 5 and 10 characters")
     private String name;
     private String email;
     private String address;

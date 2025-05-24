@@ -1,9 +1,8 @@
 package com.patient.patient_service01.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.ValueGenerationType;
 import org.springframework.boot.autoconfigure.web.WebProperties;
@@ -13,17 +12,23 @@ import java.util.UUID;
 
 
 @Entity
+@Table(name = "tbl_patient")
 public class Patinet {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    private String name;
+   @NotNull
+   private String name;
+    @NotNull
     private String email;
-    private String address;
-    private LocalDate dateOfBirth;
-    private LocalDate registrationDate;
+   @NotNull
+   private String address;
+   @NotNull
+   private LocalDate dateOfBirth;
+   @NotNull
+   private LocalDate registrationDate;
 
     public UUID getId() {
         return id;
