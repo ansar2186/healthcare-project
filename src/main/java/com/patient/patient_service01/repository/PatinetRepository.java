@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 @Repository
-public interface PatinetRepository extends JpaRepository<Patinet, UUID> {
+public interface PatinetRepository extends JpaRepository<Patinet, Long> {
 
     boolean existsByEmail(String email);
 

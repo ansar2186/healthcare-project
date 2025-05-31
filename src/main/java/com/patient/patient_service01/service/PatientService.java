@@ -9,6 +9,9 @@ import com.patient.patient_service01.repository.PatinetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+import java.util.UUID;
+
 
 @Service
 public class PatientService {
@@ -23,10 +26,25 @@ public class PatientService {
             throw new EmailAlreadyExistsException("Email Already Exits is DB , Please try with Different email");
         }
 
-
         Patinet patinetSaved = patinetRepository.save(patinet);
         PatinetResponseDto patinetResponseDto = PatinetMapper.patinetResponseDtoToPatinetResponseDto(patinetSaved);
         return patinetResponseDto;
+
+    }
+
+    public PatinetResponseDto updatePatient(Long id, PatientRequestDto patientRequestDto) {
+        Patinet patient = patinetRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("Patient not found with ID : " + id));
+
+        patient.setName(patientRequestDto.getName());
+        patient.setEmail(patientRequestDto.getEmail());
+        patient.setAddress(patientRequestDto.getAddress());
+        patient.setDateOfBirth(patientRequestDto.getDateOfBirth());
+
+        Patinet savedPatinet = patinetRepository.save(patient);
+
+        return PatinetMapper.patinetResponseDtoToPatinetResponseDto(savedPatinet);
+
 
     }
 }

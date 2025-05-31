@@ -18,7 +18,7 @@ public class Patinet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private Long id;
    @NotNull
    private String name;
     @NotNull
@@ -30,11 +30,11 @@ public class Patinet {
    @NotNull
    private LocalDate registrationDate;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
